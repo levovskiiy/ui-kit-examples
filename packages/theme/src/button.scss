@@ -1,29 +1,335 @@
 @use 'mixins/bem' as *;
 @use 'mixins/naming' as *;
 
+@mixin _button-interactive {
+  &:hover:not(.is-disabled),
+  &:active:not(.is-disabled) {
+    @content;
+  }
+}
+
+@mixin _button-filled($bg, $bg-hover, $color, $color-hover: null) {
+  color: var(#{ui-token($color)});
+  background-color: var(#{ui-token($bg)});
+  border-color: transparent;
+
+  @include _button-interactive {
+    background-color: var(#{ui-token($bg-hover)});
+
+    @if $color-hover {
+      color: var(#{ui-token($color-hover)});
+    }
+  }
+}
+
+@mixin _button-outlined($border, $color, $bg-hover, $bg: null, $color-hover: null) {
+  color: var(#{ui-token($color)});
+  @if $bg {
+    background-color: var(#{ui-token($bg)});
+  } @else {
+    background-color: var(#{ui-token('surface-transparent')});
+  }
+  border-color: var(#{ui-token($border)});
+
+  @include _button-interactive {
+    background-color: var(#{ui-token($bg-hover)});
+
+    @if $color-hover {
+      color: var(#{ui-token($color-hover)});
+    }
+  }
+}
+
+@mixin _button-text($color, $bg-hover, $color-hover: null, $bg: null) {
+  color: var(#{ui-token($color)});
+  @if $bg {
+    background-color: var(#{ui-token($bg)});
+  } @else {
+    background-color: var(#{ui-token('surface-transparent')});
+  }
+  border-color: transparent;
+
+  @include _button-interactive {
+    background-color: var(#{ui-token($bg-hover)});
+
+    @if $color-hover {
+      color: var(#{ui-token($color-hover)});
+    }
+  }
+}
+
+@mixin _button-text-inline($color, $color-hover) {
+  color: var(#{ui-token($color)});
+  background-color: var(#{ui-token('surface-transparent')});
+  border-color: transparent;
+
+  @include _button-interactive {
+    color: var(#{ui-token($color-hover)});
+    background-color: var(#{ui-token('surface-transparent')});
+  }
+}
+
 @include b(button) {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
   margin: 0;
-  border: none;
+  border: 1px solid transparent;
   cursor: pointer;
-  font: inherit;
-  line-height: 1.2;
+  font-family: Inter, system-ui, sans-serif;
+  font-weight: 400;
+  line-height: 1;
+  text-decoration: none;
+  vertical-align: middle;
   border-radius: var(#{ui-token('corners-6')});
-  padding: var(#{ui-token('spacings-8')}) var(#{ui-token('spacings-16')});
+  gap: var(#{ui-token('spacings-8')});
+  color: inherit;
+  background-color: transparent;
 
-  @include m(primary) {
-    color: var(#{ui-token('text-main-inverse')});
-    background-color: var(#{ui-token('background-brand-stronger-default')});
+  [class*='#{$ui-prefix}-icon'] {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
 
-    &:hover:not(.is-disabled) {
-      background-color: var(#{ui-token('background-brand-stronger-hover')});
+    svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  @include m(l) {
+    min-height: 38px;
+    padding: 11px 16px;
+    font-size: 16px;
+
+    [class*='#{$ui-prefix}-icon'] {
+      width: 16px;
+      height: 16px;
     }
 
-    &:active:not(.is-disabled) {
-      background-color: var(#{ui-token('background-brand-stronger-pressed')});
+    &.#{$B}--squared {
+      width: 38px;
+      height: 38px;
+      min-height: 38px;
+      padding: 7px;
+
+      [class*='#{$ui-prefix}-icon'] {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+
+  @include m(m) {
+    min-height: 34px;
+    padding: 10px 16px;
+    font-size: 14px;
+
+    [class*='#{$ui-prefix}-icon'] {
+      width: 14px;
+      height: 14px;
+    }
+
+    &.#{$B}--squared {
+      width: 34px;
+      height: 34px;
+      min-height: 34px;
+      padding: 9px;
+
+      [class*='#{$ui-prefix}-icon'] {
+        width: 16px;
+        height: 16px;
+      }
+    }
+  }
+
+  @include m(s) {
+    min-height: 24px;
+    padding: 6px 8px;
+    font-size: 12px;
+
+    [class*='#{$ui-prefix}-icon'] {
+      width: 12px;
+      height: 12px;
+    }
+
+    &.#{$B}--squared {
+      width: 24px;
+      height: 24px;
+      min-height: 24px;
+      padding: 6px;
+    }
+  }
+
+  @include m(text-inline) {
+    gap: var(#{ui-token('spacings-4')});
+    padding-inline: 0;
+    min-height: 0;
+    border-color: transparent;
+  }
+
+  @include m(primary) {
+    &.#{$B}--filled {
+      @include _button-filled(
+        'background-brand-stronger-default',
+        'background-brand-stronger-hover',
+        'text-main-inverse'
+      );
+    }
+
+    &.#{$B}--outlined {
+      @include _button-outlined(
+        'border-accent-brand-strong',
+        'text-accent-brand-strong',
+        'background-brand-subtle-default'
+      );
+    }
+
+    &.#{$B}--text {
+      @include _button-text(
+        'text-accent-brand-strong',
+        'background-brand-subtle-default'
+      );
+    }
+
+    &.#{$B}--text-inline {
+      @include _button-text-inline(
+        'text-accent-brand-strong',
+        'text-accent-brand-stronger'
+      );
+    }
+  }
+
+  @include m(secondary) {
+    &.#{$B}--filled {
+      @include _button-filled(
+        'background-brand-subtle-default',
+        'background-brand-subtle-hover',
+        'text-accent-brand-strong'
+      );
+    }
+
+    &.#{$B}--outlined {
+      @include _button-outlined(
+        'border-accent-brand-strong',
+        'text-accent-brand-strong',
+        'background-brand-subtle-default'
+      );
+    }
+
+    &.#{$B}--text {
+      @include _button-text(
+        'text-accent-brand-strong',
+        'background-brand-subtle-default'
+      );
+    }
+
+    &.#{$B}--text-inline {
+      @include _button-text-inline(
+        'text-accent-brand-strong',
+        'text-accent-brand-stronger'
+      );
+    }
+  }
+
+  @include m(tertiary) {
+    &.#{$B}--filled {
+      @include _button-filled(
+        'background-neutral-strong-default',
+        'background-neutral-strong-hover',
+        'text-main-default',
+        'text-accent-brand-strong'
+      );
+    }
+
+    &.#{$B}--outlined {
+      @include _button-outlined(
+        'border-accent-neutral-strong',
+        'text-main-default',
+        'background-neutral-subtle-default',
+        'surface-elevated',
+        'text-accent-brand-strong'
+      );
+    }
+
+    &.#{$B}--text {
+      @include _button-text(
+        'text-main-default',
+        'background-neutral-subtle-default',
+        'text-accent-brand-strong',
+        'surface-elevated'
+      );
+    }
+
+    &.#{$B}--text-inline {
+      @include _button-text-inline('text-main-default', 'text-accent-brand-strong');
+    }
+  }
+
+  @include m(success) {
+    &.#{$B}--filled {
+      @include _button-filled(
+        'background-success-stronger-default',
+        'background-success-stronger-hover',
+        'text-main-inverse'
+      );
+    }
+
+    &.#{$B}--outlined {
+      @include _button-outlined(
+        'border-accent-success-strong',
+        'text-accent-success-strong',
+        'background-success-subtle-default'
+      );
+    }
+
+    &.#{$B}--text {
+      @include _button-text(
+        'text-accent-success-strong',
+        'background-success-subtle-default'
+      );
+    }
+
+    &.#{$B}--text-inline {
+      @include _button-text-inline(
+        'text-accent-success-strong',
+        'text-accent-success-stronger'
+      );
+    }
+  }
+
+  @include m(error) {
+    &.#{$B}--filled {
+      @include _button-filled(
+        'background-error-stronger-default',
+        'background-error-stronger-hover',
+        'text-main-inverse'
+      );
+    }
+
+    &.#{$B}--outlined {
+      @include _button-outlined(
+        'border-accent-error-strong',
+        'text-accent-error-strong',
+        'background-error-subtle-default'
+      );
+    }
+
+    &.#{$B}--text {
+      @include _button-text(
+        'text-accent-error-strong',
+        'background-error-subtle-default'
+      );
+    }
+
+    &.#{$B}--text-inline {
+      @include _button-text-inline(
+        'text-accent-error-strong',
+        'text-accent-error-stronger'
+      );
     }
   }
 
@@ -31,5 +337,10 @@
     cursor: not-allowed;
     color: var(#{ui-token('text-main-subtle')});
     background-color: var(#{ui-token('background-neutral-subtle-default')});
+    border-color: transparent;
+  }
+
+  &.#{$B}--text-inline.is-disabled {
+    background-color: var(#{ui-token('surface-transparent')});
   }
 }

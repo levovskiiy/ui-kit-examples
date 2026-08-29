@@ -1,26 +1,51 @@
-<script setup lang="ts">
+<script lang="ts">
 import type { PrimitiveProps } from 'reka-ui'
+
+export type ButtonColor =
+  | 'primary'
+  | 'secondary'
+  | 'tertiary'
+  | 'success'
+  | 'error'
+
+export type ButtonAppearance = 'filled' | 'outlined' | 'text' | 'text-inline'
+
+export type ButtonSize = 'l' | 'm' | 's'
+
+export interface ButtonProps extends PrimitiveProps {
+  disabled?: boolean
+  type?: 'button' | 'submit' | 'reset'
+  color?: ButtonColor
+  appearance?: ButtonAppearance
+  size?: ButtonSize
+  squared?: boolean
+}
+</script>
+
+<script setup lang="ts">
+import { useNamespace } from '@ui-kit/composables'
 import { Primitive } from 'reka-ui'
 import { computed } from 'vue'
 
-const props = withDefaults(
-  defineProps<
-    PrimitiveProps & {
-      disabled?: boolean
-      type?: 'button' | 'submit' | 'reset'
-    }
-  >(),
-  {
-    as: 'button',
-    disabled: false,
-    type: 'button',
-  },
-)
+const { b, m, is } = useNamespace('button')
+
+const {
+  as = 'button',
+  disabled = false,
+  type = 'button',
+  color = 'primary',
+  appearance = 'filled',
+  size = 'l',
+  squared = false,
+} = defineProps<ButtonProps>()
 
 const rootClass = computed(() => [
-  'app-ui-button',
-  'app-ui-button--primary',
-  { 'is-disabled': props.disabled },
+  b(),
+  m(color),
+  m(appearance),
+  m(size),
+  squared && m('squared'),
+  is('disabled', disabled),
 ])
 </script>
 

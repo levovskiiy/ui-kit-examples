@@ -5,6 +5,7 @@
     { "path": "./apps/reka-ui-demo" },
     { "path": "./apps/vuetify-0-demo" },
     { "path": "./packages/reka-ui-components" },
+    { "path": "./packages/composables" },
     { "path": "./packages/vuetify-0-components" }
   ]
 }

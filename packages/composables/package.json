@@ -1,5 +1,5 @@
 {
-  "name": "@ui-kit/reka-ui-components",
+  "name": "@ui-kit/composables",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -7,15 +7,9 @@
     ".": "./src/index.ts"
   },
   "peerDependencies": {
-    "reka-ui": "catalog:",
     "vue": "catalog:"
   },
-  "dependencies": {
-    "@ui-kit/composables": "workspace:*",
-    "@ui-kit/theme": "workspace:*"
-  },
   "devDependencies": {
-    "reka-ui": "catalog:",
     "vue": "catalog:"
   }
 }
