@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 
-const navItems = [{ to: '/components/button', label: 'Button' }]
+const navItems = [
+  { to: '/components/button', label: 'Button' },
+  { to: '/components/input', label: 'Input' },
+]
 </script>
 
 <template>
