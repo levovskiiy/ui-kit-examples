@@ -1,0 +1,39 @@
+@use 'naming' as *;
+
+$base-tokens: (
+  0: 0,
+  2: 2,
+  4: 4,
+  6: 6,
+  8: 8,
+  10: 10,
+  12: 12,
+  16: 16,
+  20: 20,
+  24: 24,
+  28: 28,
+  32: 32,
+  36: 36,
+  40: 40,
+  44: 44,
+);
+
+$spacings: (
+  0: var(#{ui-token('base-tokens-0')}),
+  2: var(#{ui-token('base-tokens-2')}),
+  4: var(#{ui-token('base-tokens-4')}),
+  8: var(#{ui-token('base-tokens-8')}),
+  12: var(#{ui-token('base-tokens-12')}),
+  16: var(#{ui-token('base-tokens-16')}),
+  24: var(#{ui-token('base-tokens-24')}),
+  28: var(#{ui-token('base-tokens-28')}),
+  32: var(#{ui-token('base-tokens-32')}),
+  40: var(#{ui-token('base-tokens-40')}),
+  44: var(#{ui-token('base-tokens-44')}),
+);
+
+$corners: (
+  4: var(#{ui-token('base-tokens-4')}),
+  6: var(#{ui-token('base-tokens-6')}),
+  16: var(#{ui-token('base-tokens-16')}),
+);

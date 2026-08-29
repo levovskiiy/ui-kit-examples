@@ -1,0 +1,20 @@
+{
+  "name": "@ui-kit/vuetify-0-components",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "peerDependencies": {
+    "@vuetify/v0": "catalog:",
+    "vue": "catalog:"
+  },
+  "dependencies": {
+    "@ui-kit/theme": "workspace:*"
+  },
+  "devDependencies": {
+    "@vuetify/v0": "catalog:",
+    "vue": "catalog:"
+  }
+}

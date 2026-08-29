@@ -1,0 +1,243 @@
+$theme-light: (
+  text: (
+    main: (
+      default: #3c435a,
+      inverse: #ffffff,
+      subtle: #888b91,
+      disabled: #c2c3c9,
+    ),
+    accent: (
+      brand: (
+        subtle: #79aff6,
+        strong: #1875f0,
+        stronger: #0e67dc,
+      ),
+      error: (
+        subtle: #ff6964,
+        strong: #ff4433,
+        stronger: #f20008,
+      ),
+      success: (
+        strong: #2fac44,
+        stronger: #279039,
+      ),
+      warning: (
+        strong: #f39509,
+        stronger: #e58900,
+      ),
+    ),
+    themed: (
+      authentic: #3c435a,
+      nuanced: #ffffff,
+    ),
+  ),
+  'icon-shape': (
+    main: (
+      default: #3c435a,
+      inverse: #ffffff,
+      subtle: #888b91,
+      disabled: #c2c3c9,
+    ),
+    accent: (
+      brand: (
+        subtler: #bcd7fb,
+        subtle: #79aff6,
+        strong: #1875f0,
+        stronger: #0e67dc,
+      ),
+      error: (
+        subtler: #ffcdc3,
+        subtle: #ff6964,
+        strong: #ff4433,
+        stronger: #f20008,
+      ),
+      success: (
+        subtler: #cbf2c9,
+        subtle: #97eca5,
+        strong: #2fac44,
+        stronger: #279039,
+      ),
+      warning: (
+        strong: #f39509,
+        stronger: #e58900,
+      ),
+      neutral: (
+        subtler: #f0f1f5,
+        subtle: #e8e9ef,
+      ),
+    ),
+    themed: (
+      authentic: #3c435a,
+      nuanced: #ffffff,
+    ),
+  ),
+  border: (
+    main: (
+      inverse: #ffffff,
+      default: #3c435a,
+    ),
+    accent: (
+      brand: (
+        subtler: #e2eefd,
+        subtle: #bcd7fb,
+        strong: #1875f0,
+        stronger: #0e67dc,
+      ),
+      error: (
+        subtler: #ffe2db,
+        subtle: #ffcdc3,
+        strong: #ff4433,
+        stronger: #f20008,
+      ),
+      success: (
+        subtler: #e5f6e8,
+        subtle: #cbf2c9,
+        strong: #2fac44,
+        stronger: #279039,
+      ),
+      warning: (
+        subtler: #fef2e1,
+        subtle: #ffdbab,
+        strong: #f39509,
+        stronger: #e58900,
+      ),
+      neutral: (
+        subtle: #e8e9ef,
+        strong: #d5d6dc,
+        stronger: #c2c3c9,
+      ),
+    ),
+  ),
+  background: (
+    brand: (
+      subtler: (
+        default: rgba(255, 255, 255, 0),
+        hover: #e2eefd,
+        pressed: #bcd7fb,
+      ),
+      subtle: (
+        default: #e2eefd,
+        hover: #bcd7fb,
+        pressed: #79aff6,
+      ),
+      strong: (
+        default: #bcd7fb,
+        hover: #79aff6,
+        pressed: #4992f3,
+      ),
+      stronger: (
+        default: #1875f0,
+        hover: #0e67dc,
+        pressed: #0d53b3,
+      ),
+    ),
+    error: (
+      subtler: (
+        default: rgba(255, 255, 255, 0),
+        hover: #ffe2db,
+        pressed: #ffcdc3,
+      ),
+      subtle: (
+        default: #ffe2db,
+        hover: #ffcdc3,
+        pressed: #ff9e94,
+      ),
+      strong: (
+        default: #ffcdc3,
+        hover: #ff9e94,
+        pressed: #ff6964,
+      ),
+      stronger: (
+        default: #ff4433,
+        hover: #f20008,
+        pressed: #9f121a,
+      ),
+    ),
+    success: (
+      subtler: (
+        default: rgba(255, 255, 255, 0),
+        hover: #e5f6e8,
+        pressed: #cbf2c9,
+      ),
+      subtle: (
+        default: #e5f6e8,
+        hover: #cbf2c9,
+        pressed: #97eca5,
+      ),
+      strong: (
+        default: #cbf2c9,
+        hover: #97eca5,
+        pressed: #69d67b,
+      ),
+      stronger: (
+        default: #2fac44,
+        hover: #279039,
+        pressed: #208645,
+      ),
+    ),
+    warning: (
+      subtler: (
+        default: rgba(255, 255, 255, 0),
+        hover: #fef2e1,
+        pressed: #ffdbab,
+      ),
+      subtle: (
+        default: #fef2e1,
+        hover: #ffdbab,
+        pressed: #ffc478,
+      ),
+      strong: (
+        default: #ffdbab,
+        hover: #ffc478,
+        pressed: #ffa130,
+      ),
+      stronger: (
+        default: #f39509,
+        hover: #e58900,
+        pressed: #ba7307,
+      ),
+    ),
+    neutral: (
+      subtler: (
+        default: rgba(255, 255, 255, 0),
+        hover: #f7f8fa,
+        pressed: #f0f1f5,
+      ),
+      subtle: (
+        default: #f7f8fa,
+        hover: #f0f1f5,
+        pressed: #e8e9ef,
+      ),
+      strong: (
+        default: #f0f1f5,
+        hover: #e8e9ef,
+        pressed: #d5d6dc,
+      ),
+      stronger: (
+        default: #c2c3c9,
+        hover: #afb0b7,
+        pressed: #9c9da4,
+      ),
+    ),
+  ),
+  surface: (
+    screen: #ffffff,
+    elevated: #ffffff,
+    overlay: rgba(255, 255, 255, 0.4),
+    transparent: rgba(255, 255, 255, 0),
+    shadow: (
+      medium: rgba(8, 11, 18, 0.12),
+      small: rgba(8, 11, 18, 0.04),
+      tiny: rgba(8, 11, 18, 0.01),
+    ),
+    accent: (
+      success: #f2fbf4,
+      brand: #f5f9fe,
+      error: #fff5f2,
+      warning: #fff8f0,
+      neutral: #fafafb,
+    ),
+    field: #ffffff,
+    modal: #ffffff,
+  ),
+);

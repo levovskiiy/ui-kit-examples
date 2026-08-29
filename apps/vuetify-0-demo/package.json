@@ -1,0 +1,26 @@
+{
+  "name": "@ui-kit/vuetify-0-demo",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "type-check": "vue-tsc --build --pretty false"
+  },
+  "dependencies": {
+    "@ui-kit/theme": "workspace:*",
+    "@ui-kit/vuetify-0-components": "workspace:*",
+    "@vuetify/v0": "catalog:",
+    "vue": "catalog:",
+    "vue-router": "catalog:"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "catalog:",
+    "sass-embedded": "catalog:",
+    "vite": "catalog:",
+    "vite-plugin-vue-devtools": "catalog:",
+    "vue-tsc": "catalog:"
+  }
+}

@@ -1,11 +1,10 @@
 {
   "files": [],
   "references": [
-    {
-      "path": "./tsconfig.node.json"
-    },
-    {
-      "path": "./tsconfig.app.json"
-    }
+    { "path": "./tsconfig.node.json" },
+    { "path": "./apps/reka-ui-demo" },
+    { "path": "./apps/vuetify-0-demo" },
+    { "path": "./packages/reka-ui-components" },
+    { "path": "./packages/vuetify-0-components" }
   ]
 }

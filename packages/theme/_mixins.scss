@@ -1,0 +1,41 @@
+@use 'sass:list';
+@use 'sass:meta';
+@use 'naming' as *;
+
+@function _ui-path-name($path) {
+  $out: '';
+
+  @each $item in $path {
+    $part: to-kebab($item);
+
+    @if $out == '' {
+      $out: $part;
+    } @else {
+      $out: $out + '-' + $part;
+    }
+  }
+
+  @return $out;
+}
+
+@mixin _ui-emit-walk($map, $path) {
+  @each $key, $value in $map {
+    $next: ();
+
+    @if list.length($path) == 0 {
+      $next: ($key,);
+    } @else {
+      $next: list.append($path, $key);
+    }
+
+    @if meta.type-of($value) == 'map' {
+      @include _ui-emit-walk($value, $next);
+    } @else {
+      #{ui-token(_ui-path-name($next))}: $value;
+    }
+  }
+}
+
+@mixin ui-emit($map, $prefix-parts...) {
+  @include _ui-emit-walk($map, $prefix-parts);
+}

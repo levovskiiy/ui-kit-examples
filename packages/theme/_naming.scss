@@ -1,0 +1,27 @@
+@use 'sass:string';
+
+$ui-prefix: 'app-ui';
+
+@function to-kebab($name) {
+  $str: #{$name};
+  $result: '';
+
+  @for $i from 1 through string.length($str) {
+    $char: string.slice($str, $i, $i);
+    $lower: string.to-lower-case($char);
+
+    @if $char == '_' or $char == ' ' {
+      $result: $result + '-';
+    } @else if $char != $lower and $i > 1 {
+      $result: $result + '-' + $lower;
+    } @else {
+      $result: $result + $lower;
+    }
+  }
+
+  @return $result;
+}
+
+@function ui-token($name) {
+  @return --#{$ui-prefix}-#{to-kebab($name)};
+}

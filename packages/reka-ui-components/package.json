@@ -1,0 +1,20 @@
+{
+  "name": "@ui-kit/reka-ui-components",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "peerDependencies": {
+    "reka-ui": "catalog:",
+    "vue": "catalog:"
+  },
+  "dependencies": {
+    "@ui-kit/theme": "workspace:*"
+  },
+  "devDependencies": {
+    "reka-ui": "catalog:",
+    "vue": "catalog:"
+  }
+}
