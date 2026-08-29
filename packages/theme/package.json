@@ -3,7 +3,24 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
+  "main": "./dist/index.css",
+  "style": "./dist/index.css",
   "exports": {
-    ".": "./index.scss"
+    ".": "./src/index.scss",
+    "./index.css": "./dist/index.css",
+    "./base.css": "./dist/base.css",
+    "./dark/css-vars.css": "./dist/dark/css-vars.css",
+    "./src/*": "./src/*",
+    "./*.css": "./dist/*.css"
+  },
+  "scripts": {
+    "clean": "node -e \"import('node:fs/promises').then((fs) => fs.rm('dist', { recursive: true, force: true }))\"",
+    "build": "tsx build.ts"
+  },
+  "devDependencies": {
+    "lightningcss": "catalog:",
+    "sass-embedded": "catalog:",
+    "tinyglobby": "catalog:",
+    "tsx": "catalog:"
   }
 }

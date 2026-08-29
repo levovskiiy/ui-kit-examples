@@ -7,6 +7,7 @@
   "scripts": {
     "dev:reka": "pnpm --filter @ui-kit/reka-ui-demo dev",
     "dev:vuetify": "pnpm --filter @ui-kit/vuetify-0-demo dev",
+    "build:theme": "pnpm --filter @ui-kit/theme build",
     "build": "pnpm -r --filter './apps/*' build",
     "preview:reka": "pnpm --filter @ui-kit/reka-ui-demo preview",
     "preview:vuetify": "pnpm --filter @ui-kit/vuetify-0-demo preview",

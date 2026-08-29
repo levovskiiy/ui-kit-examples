@@ -3,6 +3,7 @@
   "include": [
     "vite.config.*",
     "vite.config.base.ts",
+    "packages/theme/build.ts",
     "apps/*/vite.config.ts",
     "vitest.config.*",
     "eslint.config.*"

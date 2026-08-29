@@ -1,0 +1,35 @@
+@use 'mixins/bem' as *;
+@use 'mixins/naming' as *;
+
+@include b(button) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  margin: 0;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+  line-height: 1.2;
+  border-radius: var(#{ui-token('corners-6')});
+  padding: var(#{ui-token('spacings-8')}) var(#{ui-token('spacings-16')});
+
+  @include m(primary) {
+    color: var(#{ui-token('text-main-inverse')});
+    background-color: var(#{ui-token('background-brand-stronger-default')});
+
+    &:hover:not(.is-disabled) {
+      background-color: var(#{ui-token('background-brand-stronger-hover')});
+    }
+
+    &:active:not(.is-disabled) {
+      background-color: var(#{ui-token('background-brand-stronger-pressed')});
+    }
+  }
+
+  @include when(disabled) {
+    cursor: not-allowed;
+    color: var(#{ui-token('text-main-subtle')});
+    background-color: var(#{ui-token('background-neutral-subtle-default')});
+  }
+}

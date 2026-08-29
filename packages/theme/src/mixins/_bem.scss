@@ -1,0 +1,50 @@
+@use 'naming' as *;
+
+$B: null;
+$E: null;
+
+@mixin b($block) {
+  $B: $ui-prefix + '-' + $block !global;
+
+  .#{$B} {
+    @content;
+  }
+}
+
+@mixin e($element) {
+  $E: $element !global;
+  $current-selector: '';
+
+  @each $unit in $element {
+    $current-selector: #{$current-selector + '.' + $B + $element-separator + $unit + ','};
+  }
+
+  @at-root {
+    #{$current-selector} {
+      @content;
+    }
+  }
+}
+
+@mixin m($modifier) {
+  $selector: &;
+  $current-selector: '';
+
+  @each $unit in $modifier {
+    $current-selector: #{$current-selector + $selector + $modifier-separator + $unit + ','};
+  }
+
+  @at-root {
+    #{$current-selector} {
+      @content;
+    }
+  }
+}
+
+@mixin when($state) {
+  @at-root {
+    &.#{$state-prefix + $state} {
+      @content;
+    }
+  }
+}

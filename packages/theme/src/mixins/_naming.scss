@@ -1,6 +1,9 @@
 @use 'sass:string';
 
 $ui-prefix: 'app-ui';
+$element-separator: '__';
+$modifier-separator: '--';
+$state-prefix: 'is-';
 
 @function to-kebab($name) {
   $str: #{$name};

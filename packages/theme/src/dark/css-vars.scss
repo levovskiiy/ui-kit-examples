@@ -1,0 +1,6 @@
+@use '../mixins/emit' as *;
+@use '../common/theme-dark' as *;
+
+[data-theme='dark'] {
+  @include ui-emit($theme-dark);
+}

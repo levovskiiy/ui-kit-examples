@@ -1,4 +1,4 @@
-@use 'naming' as *;
+@use '../mixins/naming' as *;
 
 $base-tokens: (
   0: 0,

@@ -1,1 +1,1 @@
-export const packageName = '@ui-kit/reka-ui-components'
+export { default as Button } from './button/Button.vue'

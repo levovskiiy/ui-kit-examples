@@ -1,8 +1,7 @@
-@use 'mixins' as *;
-@use 'palette' as *;
-@use 'numbers' as *;
-@use 'theme-light' as *;
-@use 'theme-dark' as *;
+@use 'mixins/emit' as *;
+@use 'common/palette' as *;
+@use 'common/numbers' as *;
+@use 'common/theme-light' as *;
 
 :root {
   @include ui-emit($palette);
@@ -10,8 +9,4 @@
   @include ui-emit($spacings, 'spacings');
   @include ui-emit($corners, 'corners');
   @include ui-emit($theme-light);
-}
-
-[data-theme='dark'] {
-  @include ui-emit($theme-dark);
 }
